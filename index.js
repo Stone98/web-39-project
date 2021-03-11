@@ -9,7 +9,7 @@ server.use(express.static(path.join(__dirname, "client/build")));
 
 console.log(process.env.NODE_ENV);
 
-// on Heroku, an env variable is called "NODE_ENV" -> "production"
+// on Heroku machine, an env variable is called "NODE_ENV" -> "production"
 if (process.env.NODE_ENV === "development") {
   const cors = require("cors");
   server.use(cors());
@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "development") {
 
 // our API comes earlier in the pipeline
 server.get("/api/hello", (req, res) => {
-  res.json({ message: "hello" });
+  res.json({ message: "i love you all" });
 });
 
 // catch-all that just sends back index.html
