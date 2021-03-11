@@ -3,7 +3,7 @@ import "./App.css";
 
 function getUrl(path) {
   if (process.env.NODE_ENV === "development") {
-    return "http://localhost:5000" + path;
+    return "http://localhost:5001" + path;
   }
   return path;
 }
