@@ -1,15 +1,21 @@
 require("dotenv").config();
 
-console.log("Web 39 rulez big time");
-
 const express = require("express");
 
 const server = express();
+
+server.use(express.json());
 
 console.log(process.env.NODE_ENV);
 
 // on Heroku, an env variable is called "NODE_ENV" -> "production"
 if (process.env.NODE_ENV === "development") {
   const cors = require("cors");
-  server.use(express.json());
+  server.use(cors());
 }
+
+const PORT = process.env.PORT || 4000;
+
+server.listen(PORT, () => {
+  console.log(`listening on ${PORT}`);
+});
